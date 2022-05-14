@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "626800981493",
+    "project_id": "sist-connect-97596",
+    "storage_bucket": "sist-connect-97596.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626800981493:android:5bd486f86a15c757e11cbc",
+        "android_client_info": {
+          "package_name": "com.flutterflow.sistconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626800981493-1lp4gedmunuvafnlobvtvgud27gdc02u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterflow.sistconnect",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "626800981493-994prbg5famciv1pb9jfk4vrac217iah.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATwFbsxF0p3MTuHOtVt9Dmi-CIrY0a9IY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626800981493-994prbg5famciv1pb9jfk4vrac217iah.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626800981493-129aii93a7igv07qebk13prmai3bjjg3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.sistconnect"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
