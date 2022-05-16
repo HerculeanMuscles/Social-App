@@ -35,8 +35,7 @@ class _TutorsAdminState extends State<TutorsAdmin> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      widget.title /*"Tutor Event"*/
-                      ,
+                      widget.title /*"Tutor Event"*/,
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 25,

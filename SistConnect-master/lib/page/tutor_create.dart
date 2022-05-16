@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:sistconnect/page/tutor_widget.dart';
 
 import '../model/tutor.dart';
 
@@ -120,11 +119,11 @@ class _TutorFormState extends State<TutorForm> {
     );
   }
 
-   Future createTutoring(Tutor tutor) async{
+  Future createTutoring(Tutor tutor) async {
     final docTutoring = FirebaseFirestore.instance.collection("tutoring").doc();
     tutor.id = docTutoring.id;
 
     final json = tutor.toJson();
-     await docTutoring.set(json);
-   }
+    await docTutoring.set(json);
+  }
 }

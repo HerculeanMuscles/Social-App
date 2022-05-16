@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:sistconnect/backend/storage_service.dart';
 import 'package:sistconnect/model/events.dart';
 
-class EventForm extends StatefulWidget {
-  const EventForm({Key key}) : super(key: key);
+class EventFormTest extends StatefulWidget {
+  const EventFormTest({Key key}) : super(key: key);
 
   @override
-  State<EventForm> createState() => _EventFormState();
+  State<EventFormTest> createState() => _EventFormTestState();
 }
 
-class _EventFormState extends State<EventForm> {
+class _EventFormTestState extends State<EventFormTest> {
   final controllerTitle = TextEditingController();
   final controllerDate = TextEditingController();
   final controllerDescription = TextEditingController();
@@ -145,7 +145,7 @@ class _EventFormState extends State<EventForm> {
                         title: controllerTitle.text,
                         date: controllerDate.text,
                         description: controllerDescription.text,
-                        image: path,
+                        image: 'gs://sist-connect-97596.appspot.com/images/$fileName',
                       );
                       Navigator.pop(context);
 

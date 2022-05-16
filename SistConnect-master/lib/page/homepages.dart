@@ -2,10 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sistconnect/page/profile.dart';
 import 'package:sistconnect/page/tutor_page.dart';
-import '../auth/auth_util.dart';
-import '../login/login_widget.dart';
+
 import 'event_page.dart';
-import 'event_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);

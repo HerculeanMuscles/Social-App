@@ -1,3 +1,4 @@
+import 'package:firebase_image/firebase_image.dart';
 import 'package:flutter/material.dart';
 
 class Event extends StatefulWidget {
@@ -35,7 +36,7 @@ class _EventState extends State<Event> {
               borderRadius: BorderRadius.vertical(
                   top: Radius.circular(8.0), bottom: Radius.zero),
               child: Image(
-                image: AssetImage(/*Insert image*/ widget.image),
+                image: FirebaseImage(/*Insert image*/ widget.image),
                 fit: BoxFit.fill,
                 height: 200,
               ),

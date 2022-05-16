@@ -1,22 +1,21 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_image/firebase_image.dart';
 import 'package:flutter/material.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import 'event_create.dart';
 
 class EventAdmin extends StatefulWidget {
+  final String id;
   final String title;
   final String date;
   final String image;
   final String description;
 
-  const EventAdmin({
-    Key key,
-    this.title,
-    this.date,
-    this.image,
-    this.description,
-  }) : super(key: key);
+  const EventAdmin(
+      {Key key, this.title, this.date, this.image, this.description, this.id})
+      : super(key: key);
 
   @override
   State<EventAdmin> createState() => _EventAdminState();
@@ -39,11 +38,11 @@ class _EventAdminState extends State<EventAdmin> {
               borderRadius: BorderRadius.vertical(
                   top: Radius.circular(8.0), bottom: Radius.zero),
               child: Image(
-                image: AssetImage(/*Insert image*/ widget.image),
                 fit: BoxFit.fill,
+                image: FirebaseImage(widget.image),
                 height: 200,
               ),
-            ),
+            ), /*ubgugft123*/
             Container(
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 5),
               child: Row(
@@ -93,7 +92,14 @@ class _EventAdminState extends State<EventAdmin> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
               child: FFButtonWidget(
-                onPressed: () {},
+                onPressed: () {
+                  print(widget.id);
+                  final docEvent = FirebaseFirestore.instance
+                      .collection('events')
+                      .doc(widget.id);
+
+                  docEvent.delete();
+                },
                 text: 'Delete Event',
                 options: FFButtonOptions(
                   height: 40,

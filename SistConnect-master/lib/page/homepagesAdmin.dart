@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sistconnect/page/profile_admin.dart';
-import 'package:sistconnect/page/tutor_page.dart';
+
 import 'package:sistconnect/page/tutor_page_admin.dart';
-import '../auth/auth_util.dart';
-import '../login/login_widget.dart';
-import 'event_page.dart';
+
 import 'event_page_admin.dart';
-import 'event_widget.dart';
 
 class HomePageAdmin extends StatefulWidget {
   const HomePageAdmin({Key key}) : super(key: key);
