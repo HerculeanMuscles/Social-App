@@ -63,8 +63,11 @@ class _EventPageAdminState extends State<EventPageAdmin> {
                         return Text('Something is wrong! ${snapshot.error}');
                       } else if (snapshot.hasData) {
                         final events = snapshot.data;
-                        return ListView(
-                          children: events.map(buildEvents).toList(),
+                        return RefreshIndicator(
+                          onRefresh: _refresh,
+                          child: ListView(
+                            children: events.map(buildEvents).toList(),
+                          ),
                         );
                       } else {
                         return const Center(
@@ -91,4 +94,10 @@ class _EventPageAdminState extends State<EventPageAdmin> {
       .snapshots()
       .map((snapshot) =>
           snapshot.docs.map((doc) => EventsView.fromJson(doc.data())).toList());
+
+  Future<void> _refresh() {
+    return Future.delayed(Duration(seconds: 3));
+  }
 }
+
+
