@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Event extends StatefulWidget {
   final String title;
-  final String date;
+  final DateTime date;
   final String image;
   final String description;
 
@@ -61,7 +62,7 @@ class _EventState extends State<Event> {
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(10, 3, 10, 3),
                       child: Text(
-                        /*"date"*/ widget.date,
+                        /*"date"*/ DateFormat.yMd('en_US').format(widget.date),
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,

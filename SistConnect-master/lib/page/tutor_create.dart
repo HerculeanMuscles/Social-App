@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../model/tutor.dart';
 
@@ -72,10 +74,9 @@ class _TutorFormState extends State<TutorForm> {
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                child: TextField(
+                child: DateTimeField(
                   controller: controllerDate,
                   style: const TextStyle(color: Colors.white),
-                  minLines: 1,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.blue, width: 2.0),
@@ -87,7 +88,14 @@ class _TutorFormState extends State<TutorForm> {
                     labelStyle: TextStyle(
                       color: Colors.white,
                     ),
-                  ),
+                  ), format: DateFormat('yyyy-MM-dd'),
+                  onShowPicker: (context, currentValue) {
+                    return showDatePicker(
+                        context: context,
+                        firstDate: DateTime(2022),
+                        initialDate: currentValue ?? DateTime.now(),
+                        lastDate: DateTime(2100));
+                  }
                 ),
               ),
               Container(
@@ -96,11 +104,11 @@ class _TutorFormState extends State<TutorForm> {
                     onPressed: () {
                       final tutor = Tutor(
                           title: controllerTitle.text,
-                          date: controllerDate.text,
+                          date: DateTime.parse(controllerDate.text),
                           description: controllerDescription.text);
-                      Navigator.pop(context);
-
                       createTutoring(tutor);
+
+                      Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
                       primary: const Color.fromRGBO(120, 121, 241, 1),

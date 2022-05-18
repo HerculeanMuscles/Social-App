@@ -1,8 +1,10 @@
 
+import 'package:sistconnect/backend/backend.dart';
+
 class TutorView {
   final String id;
   final String title;
-  final String date;
+  final DateTime date;
   final String description;
 
   TutorView({
@@ -22,7 +24,7 @@ class TutorView {
   static TutorView fromJson(Map<String, dynamic> json) => TutorView(
       id: json['id'],
       title: json['title'],
-      date: json['date'],
+      date: (json['date'] as Timestamp).toDate(),
       description: json['description'],
   );
 }

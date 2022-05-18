@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:sistconnect/backend/storage_service.dart';
 import 'package:sistconnect/model/events.dart';
 
@@ -97,10 +98,9 @@ class _EventFormState extends State<EventForm> {
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                child: TextField(
+                child: DateTimeField(
                   controller: controllerDate,
                   style: const TextStyle(color: Colors.white),
-                  minLines: 1,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.blue, width: 2.0),
@@ -113,6 +113,7 @@ class _EventFormState extends State<EventForm> {
                       color: Colors.white,
                     ),
                   ),
+                  format: DateFormat(),
                 ),
               ),
               Container(
@@ -143,9 +144,9 @@ class _EventFormState extends State<EventForm> {
 
                       final events = Events(
                         title: controllerTitle.text,
-                        date: controllerDate.text,
+                        date: DateTime.parse(controllerDate.text),
                         description: controllerDescription.text,
-                        image: path,
+                        image: 'gs://sist-connect-97596.appspot.com/images/$fileName',
                       );
                       Navigator.pop(context);
 

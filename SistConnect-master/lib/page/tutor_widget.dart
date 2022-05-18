@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Tutors extends StatefulWidget {
   final String title;
-  final String date;
+  final DateTime date;
   final String description;
 
   const Tutors({Key key, this.title, this.date, this.description})
@@ -31,30 +32,34 @@ class _TutorsState extends State<Tutors> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      widget.title /*"Tutor Event"*/
-                      ,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
+                    Expanded(
+                      child: Text(
+                        widget.title /*"Tutor Event"*/
+                        ,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                        ),
+                        textAlign: TextAlign.justify,
                       ),
-                      textAlign: TextAlign.start,
                     ),
                     Card(
                       color: const Color.fromRGBO(95, 112, 255, 1.0),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 3, 10, 3),
-                        child: Text(
-                          widget.date /*"date"*/
-                          ,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
+                      child: Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 3, 10, 3),
+                          child: Text(
+                            DateFormat.yMd('en_US').format(widget.date)
+                            /*widget.date.toIso8601String()*/ /*"date"*/,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                            textAlign: TextAlign.end,
                           ),
-                          textAlign: TextAlign.end,
                         ),
                       ),
                     ),

@@ -1,7 +1,7 @@
 class Events {
   String id;
   final String title;
-  final String date;
+  final DateTime date;
   final String description;
   final String image;
 

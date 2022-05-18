@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_image/firebase_image.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -9,7 +10,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 class EventAdmin extends StatefulWidget {
   final String id;
   final String title;
-  final String date;
+  final DateTime date;
   final String image;
   final String description;
 
@@ -48,28 +49,32 @@ class _EventAdminState extends State<EventAdmin> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    /*"Event"*/ widget.title,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
+                  Expanded(
+                    child: Text(
+                      /*"Event"*/ widget.title,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                      ),
+                      textAlign: TextAlign.justify,
                     ),
-                    textAlign: TextAlign.start,
                   ),
                   Card(
                     color: const Color.fromRGBO(95, 112, 255, 1.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 3, 10, 3),
-                      child: Text(
-                        /*"date"*/ widget.date,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
+                    child: Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 3, 10, 3),
+                        child: Text(
+                          /*"date"*/ DateFormat.yMd('en_US').format(widget.date),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                          ),
+                          textAlign: TextAlign.justify,
                         ),
-                        textAlign: TextAlign.end,
                       ),
                     ),
                   ),

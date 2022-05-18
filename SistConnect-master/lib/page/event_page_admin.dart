@@ -95,8 +95,13 @@ class _EventPageAdminState extends State<EventPageAdmin> {
       .map((snapshot) =>
           snapshot.docs.map((doc) => EventsView.fromJson(doc.data())).toList());
 
-  Future<void> _refresh() {
-    return Future.delayed(Duration(seconds: 3));
+  Future<void> _refresh() async {
+    Future.delayed(Duration(seconds: 3));
+    setState(() {
+      readEvents();
+      buildEvents(EventsView());
+    });
+
   }
 }
 
